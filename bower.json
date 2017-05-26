@@ -1,0 +1,23 @@
+{
+  "name": "droplet-workbook",
+  "version": "1.0",
+  "authors": [
+    "Group 11"
+  ],
+  "description": "Description goes here",
+  "keywords": [
+    "one page scroll"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
