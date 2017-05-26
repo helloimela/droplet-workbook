@@ -77,8 +77,99 @@ body>div{
 	    overflow: auto;
 	  }
 }
+a{
+	&:hover{text-decoration: none;}
+}
+
+.logo img{width: 100%;}
 
 #section0{background: $brand-primary;}
 #section1{background: $brand-dark;}
 #section2{background: $brand-danger;}
 #section3{background: $brand-onblack;}
+
+.intro{
+	position: relative;width: 100%;height: 100%;
+	padding-top: 20%;
+}
+
+.tl-nav{
+	position: absolute;
+	left: 50%;
+	@include transform(translateX(-50%));
+	width: 1px;
+	border-right: 1px solid $brand-onblack;
+	height: 0%;
+	top: 0;
+	@include transition(all 0.5s);
+	animation: tlline 1s alternate forwards;
+	&.tl-nav-0{
+		top:60%;
+		animation: tlline0 1s alternate forwards;
+		a{
+			background: $brand-primary;
+			position: absolute;
+			width: 200px;
+			border: 1px solid $brand-onblack;
+			border-radius: 45px;
+			padding: 10px;
+			text-align: center;
+			left: -100px;
+			top: 50px;
+		}
+	}
+	&.tl-nav-1{
+		.tl-head, .tl-bullet{background: $brand-dark;}
+	}
+}
+.tl-bullet{
+	display: block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border: 4px solid $brand-onblack;
+	border-radius: 50%;
+	left: -10px;
+	top: 40px;
+	&.bottom{top: 138px;}
+}
+.tl-head{
+	display: block;
+	position: absolute;
+	font-family: $font-family-serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size:2em;
+	left: 50%;
+	top: 60px;
+	@include transform(translateX(-50%));
+	padding: 20px;
+}
+.tl-numeric{	
+	font-family: $font-family-serif;
+	position: absolute;
+	display: block;
+	font-size: 16em;
+	opacity: .5;
+	left: -100px;
+	top: -100px;
+	z-index: 222;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+// animation keyframes
+
+@keyframes tlline {
+	from	{height: 0;opacity: 0;}
+	to 		{height: 100%;opacity: 1;}
+}
+@keyframes tlline0 {
+	from	{height: 40%;opacity: 0;}
+	to 		{height: 100%;opacity: 1;}
+}

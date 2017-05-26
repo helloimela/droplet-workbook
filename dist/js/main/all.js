@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#fullpage').fullpage({
-    anchors: ['firstPage', 'secondPage', '3rdPage'],
+    anchors: ['intro', 'brainstorming', 'explore','experiment','final'],
     navigation: true,
     navigationPosition: 'right'
   });
