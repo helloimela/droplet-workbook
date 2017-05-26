@@ -6917,8 +6917,12 @@ a:hover {
   left: -100px;
   top: 50px;
 }
-.tl-nav.tl-nav-1 .tl-head, .tl-nav.tl-nav-1 .tl-bullet {
-  background: #234;
+.tl-nav.tl-nav-2 .tl-head, .tl-nav.tl-nav-2 .tl-bullet {
+  background: #e44;
+}
+.tl-nav.tl-nav-2 .tl-head {
+  width: 300px;
+  text-align: center;
 }
 
 .tl-bullet {
@@ -6964,6 +6968,103 @@ a:hover {
   font-weight: 400;
 }
 
+.int-circles {
+  width: 100%;
+  height: 400px;
+  background-image: url(../img/circles.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  position: relative;
+}
+
+.int-caps, .int-bottles, .int-center {
+  position: absolute;
+  height: 100%;
+}
+.int-caps img, .int-bottles img, .int-center img {
+  width: 80px;
+  position: absolute;
+}
+
+.int-caps {
+  top: 0;
+  left: 0;
+  width: 40%;
+}
+.int-caps .bc1 {
+  top: 50%;
+  left: 50%;
+}
+.int-caps .bc4 {
+  top: 30%;
+  left: 30%;
+}
+
+.int-bottles {
+  top: 0;
+  right: 0;
+  width: 40%;
+}
+.int-bottles .bc2 {
+  top: 50%;
+  right: 40%;
+}
+.int-bottles .bc3 {
+  top: 20%;
+  right: 60%;
+  width: 50px;
+}
+
+.int-center {
+  top: 0;
+  width: 20%;
+  left: 40%;
+}
+
+.circle-point {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+.circle-point:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.circle-point:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  -moz-transform-origin: 50% 50% 0;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.circle-point:hover:before {
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  background-color: #e44;
+}
+
 .disabled {
   pointer-events: none;
   cursor: default;
@@ -6987,5 +7088,15 @@ a:hover {
   to {
     height: 100%;
     opacity: 1;
+  }
+}
+@keyframes borderanim {
+  0% {
+    border-width: 0px;
+    border-color: white;
+  }
+  100% {
+    border-width: 15px;
+    border-color: rgba(255, 255, 255, 0);
   }
 }

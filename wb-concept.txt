@@ -1,20 +1,20 @@
-1. Introduction
+0. Introduction
 	Droplet is both a water filter and a portable water quality meter. It is attachable to any standard PET bottle, making it very flexible. The water quality meter measures multiple parameters, both before and after filtering, so you can both learn the quality of your water and see the effect of filtering it! 
 
-2. Discovery
+1. Discovery
 	We start the project by redefining the use and misuse of plastic bottle.
 	(Picture: mindmap, sketches, video stopmotion bottle)
 
-3. Design Workshop
+2. Design Workshop
 	Based on the intersection of ... & ... we decided to explore the misuse of plastic bottle as a water filter instrument. We focused on designing the bottle's cap as a detachable water filter device that can be used with any standard PET bottle.
 	(screenshot intersection, Video workshop)
 
-4. Prototyping
+3. Prototyping
 	- proof of design concept >> prototype with 3D print
 	(3D sketches, 3D printing video)
 
-5. Final
+4. Final
 	(video final & exhibition documentation)
 
-6. Cheers!
+5. Cheers!
 	Authors & course

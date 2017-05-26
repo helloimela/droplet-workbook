@@ -118,8 +118,9 @@ a{
 			top: 50px;
 		}
 	}
-	&.tl-nav-1{
-		.tl-head, .tl-bullet{background: $brand-dark;}
+	&.tl-nav-2{
+		.tl-head, .tl-bullet{background: $brand-danger;}
+		.tl-head{width: 300px;text-align: center;}
 	}
 }
 .tl-bullet{
@@ -158,6 +159,74 @@ a{
 	font-weight: 400;
 }
 
+// intersection
+.int-circles{
+	width: 100%;
+	height: 400px;
+	background-image: url(../img/circles.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% auto;
+	position: relative;
+}
+.int-caps, .int-bottles, .int-center{
+	position: absolute;
+	height: 100%;
+	img{width: 80px;position: absolute;}
+}
+.int-caps{
+	top: 0;
+	left: 0;
+	width: 40%;
+	.bc1{top: 50%;left:50%;}
+	.bc4{top: 30%;left: 30%;}
+}
+.int-bottles{
+	top: 0;
+	right: 0;
+	width: 40%;
+	.bc2{top: 50%;right: 40%;}
+	.bc3{top: 20%;right: 60%;width: 50px;}
+}
+.int-center{
+	top: 0;
+	width: 20%;
+	left: 40%;
+}
+.circle-point{
+	width: 20px;
+	height: 20px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	&:after{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background:#fff;
+		@include transition(all 0.5s);
+	}
+	&:before{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color:#fff;
+		@include transform-origin(50%,50%,0);
+		@include transition(all 0.5s);
+	}
+	&:hover{
+		&:before{
+			@include transform(scale(2));
+			background-color: $brand-danger;
+		}
+	}
+}
+
 .disabled {
    pointer-events: none;
    cursor: default;
@@ -172,4 +241,8 @@ a{
 @keyframes tlline0 {
 	from	{height: 40%;opacity: 0;}
 	to 		{height: 100%;opacity: 1;}
+}
+@keyframes borderanim{
+	0% {border-width:0px;border-color: rgba(#fff,1);}
+	100%{border-width: 15px;border-color: rgba(#fff,0);}
 }
