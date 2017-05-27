@@ -65,9 +65,10 @@
 .fw-light{font-weight: 300;}
 .lh-15{line-height: 1.5em;}
 .fc-primary{color: $brand-primary;}
+.bg-white{background-color: $brand-onblack; color: $brand-dark;}
 
 
-html,body, body>div, .container{
+html,body, .container{
 	height: 100%;
 	color: $brand-onblack;
 	position: relative;
@@ -83,30 +84,187 @@ a{
 
 .logo img{width: 100%;}
 
-#section0{background: $brand-primary;}
+#section0, #section4, #section5{background: $brand-primary;}
 #section1{background: $brand-dark;}
 #section2{background: $brand-danger;}
-#section3{background: $brand-onblack;}
+#section3{background: $brand-success;}
 
 .intro{
 	position: relative;width: 100%;height: 100%;
-	padding-top: 20%;
 }
+#introanim{
+	padding-top: 15%;
+	@include transition(all 0.2s);
+	.detail-view{opacity: 0;margin-top: 100px;text-align: center;}
+	&.active{
+		padding-top: 10%;
+		.detail-view{opacity: 1;margin-top: 10px;}
+	}
+}
+.circle-point{
+	width: 20px;
+	height: 20px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%,-50%));
 
+	&:after{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background:#fff;
+		@include transition(all 0.5s);
+	}
+	&:before{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color:#fff;
+		@include transform-origin(50%,50%,0);
+		@include transition(all 0.5s);
+		animation:acircle 1s alternate infinite;
+	}
+	&:hover{
+		&:before{
+			@include transform(scale(2));
+			opacity: 0;
+		}
+	}
+	&.by-img{
+		top: 100%;
+		&:hover:before{opacity: 0;}
+	}
+}
+.discovery .by-img:before, .discovery .by-img:after{background:$brand-danger;}
+.design-ws .by-img:before, .design-ws .by-img:after{background:$brand-dark;}
+
+.box-on-tl{
+	background-color: $brand-onblack;
+	color: $brand-dark;
+	padding: 20px;
+	text-align: center;
+	border-radius: 5px;
+}
+.box-cheers{
+	position: absolute;
+	top: 220px;
+	background-color: $brand-dark;
+	padding: 30px;
+	text-align: center;
+}
+.text-img{
+	img{
+		width: 100%;
+	}
+}
+.video-background {
+  background: #000;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.tl-ctn{margin-top: 220px;}
+.vid-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.wb-modal{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background:rgba(#000,0.8);
+	opacity: 0;
+	@include transform-origin(50%,0,0);
+	@include transform(scale(0));
+	@include transition(all 0.2s);
+	.wb-modal-ctn{
+		position: absolute;
+		background-color: #fff;
+		color: $brand-dark;
+		padding: 30px;
+		left: 50%;
+		top: 50%;
+		@include transform(translate(-50%,-50%));
+		@include transition(all 0.2s);
+		z-index: 1;
+		img{width: 100%;}
+		&:before{
+			content: '';
+			background-color: $brand-danger;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+		&:after{
+			content: '';
+			background-color:#fff;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	}
+	&.active{
+		opacity: 1;
+		@include transform(scale(1));
+	}
+}
+.wb-close{
+	position: absolute;
+	font-family: $font-family-serif;
+	font-style: italic;
+	letter-spacing: 0.3em;
+	top: -60px;
+	left: 50%;
+	@include transform(translateX(-50%));
+	padding: 5px 15px;
+	border:1px solid $brand-onblack;
+	border-radius: 2px;
+}
 .tl-nav{
 	position: absolute;
 	left: 50%;
 	@include transform(translateX(-50%));
 	width: 1px;
 	border-right: 1px solid $brand-onblack;
-	height: 0%;
+	height: 100%;
 	top: 0;
 	@include transition(all 0.5s);
-	animation: tlline 1s alternate forwards;
+	// animation: tlline 1s alternate forwards;
 	&.tl-nav-0{
 		top:60%;
 		animation: tlline0 1s alternate forwards;
-		a{
+		a.start-explore{
 			background: $brand-primary;
 			position: absolute;
 			width: 200px;
@@ -117,10 +275,30 @@ a{
 			left: -100px;
 			top: 50px;
 		}
+		.circle-point{
+			top:0;left:0px;
+			&:hover:before{background-color: $brand-primary;}
+		}
+	}
+	&.tl-nav-1{
+		.tl-head, .tl-bullet{background: $brand-dark;}
+		.tl-numeric{left: -100px;}
 	}
 	&.tl-nav-2{
 		.tl-head, .tl-bullet{background: $brand-danger;}
-		.tl-head{width: 300px;text-align: center;}
+		.tl-numeric{left: -150px;}
+	}
+	&.tl-nav-3{
+		.tl-head, .tl-bullet{background: $brand-success;}
+		.tl-numeric{left: 50px;}
+	}
+	&.tl-nav-4, &.tl-nav-5{
+		.tl-head, .tl-bullet{background: $brand-primary;}
+		.tl-numeric{left: 50px;}
+	}
+	&.tl-nav-4{height: 100px;}
+	&.tl-nav-5{
+		height: 220px;
 	}
 }
 .tl-bullet{
@@ -143,6 +321,8 @@ a{
 	font-size:2em;
 	left: 50%;
 	top: 60px;
+	width: 300px;
+	text-align: center;
 	@include transform(translateX(-50%));
 	padding: 20px;
 }
@@ -152,7 +332,6 @@ a{
 	display: block;
 	font-size: 16em;
 	opacity: .5;
-	left: -100px;
 	top: -100px;
 	z-index: 222;
 	font-style: italic;
@@ -193,43 +372,57 @@ a{
 	width: 20%;
 	left: 40%;
 }
-.circle-point{
-	width: 20px;
-	height: 20px;
-	display: block;
+
+.sec-4{
 	position: absolute;
+	width: 100%;
+	height: 100%;
 	top: 0;
-	left: 50%;
-	&:after{
-		content: '';
+	left: -95%;
+	background-color: $brand-primary;
+	@include transition(all 0.2s);
+	&.active{
+		left:-5%;
+	}
+}
+.sec-4-ctn{
+	margin-top: 220px;
+	a{color: $brand-dark;&:hover{color: $brand-onblack;}}
+}
+.to-sec-4{
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top: 0;
+	right: 10px;
+	cursor: pointer;
+	svg{
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		background:#fff;
-		@include transition(all 0.5s);
+		top: 50%;
+		@include transform(translateY(-50%));
 	}
-	&:before{
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		background-color:#fff;
-		@include transform-origin(50%,50%,0);
-		@include transition(all 0.5s);
-	}
-	&:hover{
-		&:before{
-			@include transform(scale(2));
-			background-color: $brand-danger;
-		}
-	}
+}
+.sm-img{
+	width:250px;
+	margin-bottom: 20px;
+	img{width: 100%;}
+}
+.w100{width: 100%;}
+.ex-photo{
+	background-size: cover;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 480px;
 }
 
 .disabled {
    pointer-events: none;
    cursor: default;
+}
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+	background:$brand-onblack;
 }
 
 // animation keyframes
@@ -245,4 +438,8 @@ a{
 @keyframes borderanim{
 	0% {border-width:0px;border-color: rgba(#fff,1);}
 	100%{border-width: 15px;border-color: rgba(#fff,0);}
+}
+@keyframes acircle{
+	0%{@include transform(scale(1));opacity: 1;}
+	100%{@include transform(scale(2));opacity: 0;}
 }
