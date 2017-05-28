@@ -6889,6 +6889,10 @@ a:hover {
   height: 100%;
 }
 
+.par-10 {
+  margin-top: 20px;
+}
+
 #introanim {
   padding-top: 15%;
   -moz-transition: all 0.2s;
@@ -7089,15 +7093,7 @@ a:hover {
   left: 0;
   z-index: -1;
 }
-.wb-modal.active {
-  opacity: 1;
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-.wb-close {
+.wb-modal .wb-close {
   position: absolute;
   font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
   font-style: italic;
@@ -7111,6 +7107,86 @@ a:hover {
   padding: 5px 15px;
   border: 1px solid #eff;
   border-radius: 2px;
+}
+.wb-modal.slider-plc .wb-modal-ctn {
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+}
+.wb-modal.slider-plc .wb-modal-ctn:before, .wb-modal.slider-plc .wb-modal-ctn:after {
+  display: none;
+}
+.wb-modal.slider-plc .wb-close {
+  top: 40px;
+}
+.wb-modal.active {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.wb-modal .wb-slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+  height: 80%;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.wb-modal .wb-slide ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 5000px;
+  list-style: none;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  left: 0;
+}
+.wb-modal .wb-slide ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ccc;
+  text-align: center;
+}
+.wb-modal .wb-slide ul li img {
+  height: 100%;
+  width: auto;
+}
+
+.next, .prev {
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.2em;
+  font-style: italic;
+  border: 1px solid #eff;
+  border-radius: 2px;
+  display: block;
+  padding: 10px 15px;
+}
+
+.next {
+  right: -60px;
+}
+
+.prev {
+  left: -60px;
 }
 
 .tl-nav {
@@ -7224,60 +7300,6 @@ a:hover {
   z-index: 222;
   font-style: italic;
   font-weight: 400;
-}
-
-.int-circles {
-  width: 100%;
-  height: 400px;
-  background-image: url(../img/circles.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% auto;
-  position: relative;
-}
-
-.int-caps, .int-bottles, .int-center {
-  position: absolute;
-  height: 100%;
-}
-.int-caps img, .int-bottles img, .int-center img {
-  width: 80px;
-  position: absolute;
-}
-
-.int-caps {
-  top: 0;
-  left: 0;
-  width: 40%;
-}
-.int-caps .bc1 {
-  top: 50%;
-  left: 50%;
-}
-.int-caps .bc4 {
-  top: 30%;
-  left: 30%;
-}
-
-.int-bottles {
-  top: 0;
-  right: 0;
-  width: 40%;
-}
-.int-bottles .bc2 {
-  top: 50%;
-  right: 40%;
-}
-.int-bottles .bc3 {
-  top: 20%;
-  right: 60%;
-  width: 50px;
-}
-
-.int-center {
-  top: 0;
-  width: 20%;
-  left: 40%;
 }
 
 .sec-4 {
